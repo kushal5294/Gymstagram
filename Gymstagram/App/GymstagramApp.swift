@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
+import Firebase
+
 
 @main
 struct GymstagramApp: App {
+    
+    @StateObject var viewModel = AuthViewModel()
+    init() {
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
+        .environmentObject(viewModel)
     }
 }
