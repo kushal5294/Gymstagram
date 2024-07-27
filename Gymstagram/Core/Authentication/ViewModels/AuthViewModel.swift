@@ -12,6 +12,7 @@ import Firebase
 class AuthViewModel: ObservableObject {
     @Published var UserSession: FirebaseAuth.User?
     @Published var currentUser: User?
+    @Published var alertItem: AlertItem?
     private let service = UserService()
 
     
@@ -42,6 +43,7 @@ class AuthViewModel: ObservableObject {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error {
                 print("DEBUG: Failed to register with error \(error.localizedDescription)")
+                self.alertItem = AlertContext.invalidForm
                 return
             }
             guard let user = result?.user else { return }
