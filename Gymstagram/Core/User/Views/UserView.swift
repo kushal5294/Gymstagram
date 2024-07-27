@@ -11,19 +11,21 @@ struct UserView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
 
     var body: some View {
-        if let user = authViewModel.currentUser {
-            NavigationView {
-                VStack {
+        NavigationView {
+            VStack {
+                if let user = authViewModel.currentUser {
                     Text("\(user.firstname)'s View")
                         .padding()
+                } else {
+                    Text("No user logged in")
                 }
-                .navigationBarItems(leading: Button(action: {
-                    authViewModel.signOut()
-                }) {
-                    Text("Sign Out")
-                        .foregroundColor(.blue)
-                })
             }
+            .navigationBarItems(leading: Button(action: {
+                authViewModel.signOut()
+            }) {
+                Text("Sign Out")
+                    .foregroundColor(.blue)
+            })
         }
     }
 }
