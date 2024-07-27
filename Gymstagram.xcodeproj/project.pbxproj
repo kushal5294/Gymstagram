@@ -72,6 +72,11 @@
 		558E46212C4DE23300CED97C /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 558E46202C4DE23300CED97C /* FirebaseStorageCombine-Community */; };
 		558E46232C4DE23300CED97C /* FirebaseVertexAI-Preview in Frameworks */ = {isa = PBXBuildFile; productRef = 558E46222C4DE23300CED97C /* FirebaseVertexAI-Preview */; };
 		558E46252C4DE4A400CED97C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558E46242C4DE4A400CED97C /* User.swift */; };
+		55BDE8D72C557542001E6A51 /* postService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDE8D62C557542001E6A51 /* postService.swift */; };
+		55BDE8D92C557A5B001E6A51 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDE8D82C557A5B001E6A51 /* Post.swift */; };
+		55BDE8DB2C5581ED001E6A51 /* imageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDE8DA2C5581ED001E6A51 /* imageUploader.swift */; };
+		55BDE8E12C5588B9001E6A51 /* uploadPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDE8E02C5588B9001E6A51 /* uploadPost.swift */; };
+		55BDE8E32C558C4B001E6A51 /* imagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDE8E22C558C4B001E6A51 /* imagePicker.swift */; };
 		55E27A342C47518500745AD4 /* GymstagramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E27A332C47518500745AD4 /* GymstagramApp.swift */; };
 		55E27A362C47518500745AD4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E27A352C47518500745AD4 /* ContentView.swift */; };
 		55E27A382C47518600745AD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55E27A372C47518600745AD4 /* Assets.xcassets */; };
@@ -90,6 +95,11 @@
 		553E1F162C4DC85900E27DA4 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		553E1F442C4DCEFD00E27DA4 /* userService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userService.swift; sourceTree = "<group>"; };
 		558E46242C4DE4A400CED97C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		55BDE8D62C557542001E6A51 /* postService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postService.swift; sourceTree = "<group>"; };
+		55BDE8D82C557A5B001E6A51 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		55BDE8DA2C5581ED001E6A51 /* imageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageUploader.swift; sourceTree = "<group>"; };
+		55BDE8E02C5588B9001E6A51 /* uploadPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadPost.swift; sourceTree = "<group>"; };
+		55BDE8E22C558C4B001E6A51 /* imagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imagePicker.swift; sourceTree = "<group>"; };
 		55E27A302C47518400745AD4 /* Gymstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gymstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E27A332C47518500745AD4 /* GymstagramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymstagramApp.swift; sourceTree = "<group>"; };
 		55E27A352C47518500745AD4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -166,6 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				553E1F442C4DCEFD00E27DA4 /* userService.swift */,
+				55BDE8D62C557542001E6A51 /* postService.swift */,
+				55BDE8DA2C5581ED001E6A51 /* imageUploader.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -173,6 +185,7 @@
 		553E1EDA2C4DC25500E27DA4 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				55BDE8DC2C558884001E6A51 /* UploadPost */,
 				553E1F132C4DC83700E27DA4 /* Authentication */,
 				553E1F072C4DC79300E27DA4 /* Challenge */,
 				553E1F062C4DC78D00E27DA4 /* User */,
@@ -188,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				558E46242C4DE4A400CED97C /* User.swift */,
+				55BDE8D82C557A5B001E6A51 /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -210,6 +224,7 @@
 		553E1EDF2C4DC27E00E27DA4 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				55BDE8E22C558C4B001E6A51 /* imagePicker.swift */,
 				53769DBC2C558238003A3AC6 /* Alerts.swift */,
 			);
 			path = Utils;
@@ -379,6 +394,30 @@
 			isa = PBXGroup;
 			children = (
 				553E1F162C4DC85900E27DA4 /* AuthViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		55BDE8DC2C558884001E6A51 /* UploadPost */ = {
+			isa = PBXGroup;
+			children = (
+				55BDE8DF2C55889E001E6A51 /* ViewModels */,
+				55BDE8DE2C55889A001E6A51 /* Views */,
+			);
+			path = UploadPost;
+			sourceTree = "<group>";
+		};
+		55BDE8DE2C55889A001E6A51 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				55BDE8E02C5588B9001E6A51 /* uploadPost.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		55BDE8DF2C55889E001E6A51 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -554,18 +593,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55BDE8E12C5588B9001E6A51 /* uploadPost.swift in Sources */,
 				553E1F122C4DC81700E27DA4 /* FeedView.swift in Sources */,
 				553E1EF22C4DC66700E27DA4 /* RegisterView.swift in Sources */,
 				55E27A362C47518500745AD4 /* ContentView.swift in Sources */,
 				553E1F0B2C4DC7AA00E27DA4 /* ChallengeView.swift in Sources */,
+				55BDE8D92C557A5B001E6A51 /* Post.swift in Sources */,
 				553E1EF52C4DC69200E27DA4 /* SignInView.swift in Sources */,
 				553E1EFE2C4DC6E100E27DA4 /* MainView.swift in Sources */,
+				55BDE8DB2C5581ED001E6A51 /* imageUploader.swift in Sources */,
 				553E1F452C4DCEFD00E27DA4 /* userService.swift in Sources */,
 				55E27A342C47518500745AD4 /* GymstagramApp.swift in Sources */,
 				553E1F0E2C4DC7B600E27DA4 /* UserView.swift in Sources */,
 				553E1F172C4DC85900E27DA4 /* AuthViewModel.swift in Sources */,
+				55BDE8E32C558C4B001E6A51 /* imagePicker.swift in Sources */,
 				53769DBD2C558238003A3AC6 /* Alerts.swift in Sources */,
 				558E46252C4DE4A400CED97C /* User.swift in Sources */,
+				55BDE8D72C557542001E6A51 /* postService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
