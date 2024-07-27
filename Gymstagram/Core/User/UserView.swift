@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UserView: View {
+struct ProfileView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
 
     var body: some View {
@@ -30,9 +30,6 @@ struct UserView: View {
     }
 }
 
-struct UserView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserView()
-            .environmentObject(AuthViewModel()) 
-    }
+#Preview {
+    ProfileView()
 }

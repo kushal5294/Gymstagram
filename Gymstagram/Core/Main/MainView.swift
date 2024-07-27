@@ -27,12 +27,17 @@ struct MainView: View {
                         Image(systemName: "dumbbell")
                         Text("Challenges")
                     }
-
-                UserView()
+                FriendView()
                     .tabItem {
-                        Image(systemName: "person.crop.circle")
+                        Image(systemName: "person.2")
+                        Text("Friends")
+                    }
+                ProfileView()
+                    .tabItem {
+                        Image(systemName: "person")
                         Text("Profile")
                     }
+                
             }
             .navigationBarBackButtonHidden()
         }
