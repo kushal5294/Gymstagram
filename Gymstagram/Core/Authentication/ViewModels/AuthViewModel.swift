@@ -32,7 +32,9 @@ class AuthViewModel: ObservableObject {
             guard let user = result?.user else { return }
             self.UserSession = user
             print("DEBUG: logged in with \(email)")
+            self.fetchUser()
         }
+        
     }
     
     func register(withEmail email: String, password: String, username: String, firstname: String,
@@ -44,17 +46,20 @@ class AuthViewModel: ObservableObject {
             }
             guard let user = result?.user else { return }
             self.UserSession = user
+            self.fetchUser()
             
             let data = ["email": email,
                         "username": username.lowercased(),
                         "firstname": firstname,
-                        "lastname": lastname]
+                        "lastname": lastname,
+                        "credits": 0]
             Firestore.firestore().collection("users")
                 .document(user.uid)
                 .setData(data) { _ in
                     print("DEBUG: Uploaded data")
                 }
         }
+        
     }
     
     func signOut() {

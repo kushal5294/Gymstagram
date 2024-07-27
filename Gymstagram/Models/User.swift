@@ -14,5 +14,6 @@ struct User: Identifiable, Decodable {
     let firstname: String
     let lastname: String
     let email: String
+    let credits: Int
     
 }
