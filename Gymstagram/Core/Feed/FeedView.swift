@@ -9,32 +9,32 @@ import SwiftUI
 import Kingfisher
 
 struct FeedView: View {
-    @EnvironmentObject var authViewModel: AuthViewModel
     @State private var posts: [Post] = []
     private let service = PostService()
     
     var body: some View {
         NavigationView {
-            VStack {
-                Text("Feed View")
-                
-                NavigationLink(destination: uploadPost()) {
-                    Text("Upload Photo")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(8)
-                }
-                .padding(.top, 20)
-                
-                List(posts) { post in
-                    VStack(alignment: .leading) {
-                        KFImage(URL(string: post.imageURL))
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(height: 200)
-                            .clipped()
-                        Text(post.tags.joined(separator: ", "))
+            ScrollView {
+                VStack(spacing: 0) {
+                    HStack {
+                        Text("Feed")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                        Spacer()
+                        NavigationLink(destination: uploadPost()) {
+                            Image(systemName: "plus.circle")
+                                .font(.system(size: 24))
+                                .foregroundColor(.blue)
+                        }
+                    }
+                    .padding(.horizontal)
+                    
+                    Divider()
+                    
+                    VStack {
+                        ForEach(posts) { post in
+                            PostView(post: post)
+                        }
                     }
                 }
                 .onAppear {
@@ -43,7 +43,7 @@ struct FeedView: View {
                     }
                 }
             }
-            .navigationTitle("Feed")
+            .navigationBarHidden(true)
         }
     }
 }
