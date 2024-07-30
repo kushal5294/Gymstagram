@@ -7,23 +7,20 @@ struct Friend: Identifiable {
 
 struct FriendView: View {
     @State private var searchText = ""
-    @State private var friends = [
-        Friend(name: "Alice"),
-        Friend(name: "Bob"),
-        Friend(name: "Charlie"),
-        Friend(name: "David"),
-        Friend(name: "Eve"),
-        Friend(name: "Frank")
-    ]
+    @StateObject var friendModel = FriendModel() // Initialize the FriendModel
     @State private var showingAddFriend = false
+    @EnvironmentObject var viewModel: AuthViewModel
 
-    var filteredFriends: [Friend] {
-        if searchText.isEmpty {
-            return friends
-        } else {
-            return friends.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+    var filteredFriends: [User] {
+            if searchText.isEmpty {
+                return friendModel.friends
+            } else {
+                return friendModel.friends.filter { user in
+                    let fullName = "\(user.firstname) \(user.lastname)"
+                    return fullName.lowercased().contains(searchText.lowercased())
+                }
+            }
         }
-    }
 
     var body: some View {
         NavigationView {
@@ -33,12 +30,10 @@ struct FriendView: View {
                     HStack (spacing: 20) {
                         Image(systemName: "person")
                             .resizable() // Make the image resizable
-                            //.aspectRatio(contentMode: .fit)
                             .frame(width: 40, height: 40) // Set the frame size for the image
-                        Text(friend.name)
+                        Text("\(friend.firstname) \(friend.lastname)")
                             .font(.title2) // Adjust the font size of the text
                     }
-                    //.padding() // Add padding to the HStack to increase spacing
                 }
                 .navigationTitle("Friends")
                 .navigationBarItems(trailing: Button(action: {
@@ -49,11 +44,19 @@ struct FriendView: View {
                 .fullScreenCover(isPresented: $showingAddFriend) {
                     AddFriendView()
                 }
+                .onAppear() {
+                    if let userId = viewModel.currentUser?.id {
+                        FriendService().fetchFriends(forUid: userId) { ids in
+                            friendModel.setFriends(ids: ids)
+                        }
+                    } else {
+                        print("User ID is nil")
+                    }
+                }
             }
         }
     }
 }
-
 
 struct SearchBar: View {
     @Binding var text: String
