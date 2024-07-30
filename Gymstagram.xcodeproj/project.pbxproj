@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		53769DBD2C558238003A3AC6 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53769DBC2C558238003A3AC6 /* Alerts.swift */; };
+		5395FC5D2C581820000FBDCF /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5395FC5C2C581820000FBDCF /* AddFriendView.swift */; };
 		53FF6C642C5595ED0028AFAA /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FF6C632C5595ED0028AFAA /* FriendView.swift */; };
 		53FF6C682C559B9A0028AFAA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 53FF6C672C559B9A0028AFAA /* Kingfisher */; };
 		53FF6C6A2C56AF5C0028AFAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53FF6C692C56AF5C0028AFAA /* GoogleService-Info.plist */; };
@@ -90,6 +91,7 @@
 
 /* Begin PBXFileReference section */
 		53769DBC2C558238003A3AC6 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Alerts.swift; path = Gymstagram/Alerts.swift; sourceTree = SOURCE_ROOT; };
+		5395FC5C2C581820000FBDCF /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
 		53FF6C632C5595ED0028AFAA /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
 		53FF6C692C56AF5C0028AFAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		553E1EF12C4DC66700E27DA4 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				53FF6C632C5595ED0028AFAA /* FriendView.swift */,
+				5395FC5C2C581820000FBDCF /* AddFriendView.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				55C324C62C55B3AB00BEA1EC /* PostView.swift in Sources */,
 				553E1F452C4DCEFD00E27DA4 /* userService.swift in Sources */,
 				55C324C82C55B8E800BEA1EC /* TagView.swift in Sources */,
+				5395FC5D2C581820000FBDCF /* AddFriendView.swift in Sources */,
 				53FF6C642C5595ED0028AFAA /* FriendView.swift in Sources */,
 				55E27A342C47518500745AD4 /* GymstagramApp.swift in Sources */,
 				553E1F0E2C4DC7B600E27DA4 /* ProfileView.swift in Sources */,
