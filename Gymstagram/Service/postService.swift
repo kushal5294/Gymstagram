@@ -7,7 +7,7 @@
 
 import Firebase
 
-struct PostService{
+struct PostService {
     
     func uploadPost (image: UIImage, tags: [String], completion: @escaping(Bool) -> Void){
         guard let uid = Auth.auth().currentUser?.uid else { return }
@@ -27,8 +27,33 @@ struct PostService{
                     completion(true)
                 }
         }
-        
     }
+    
+//    func uploadPost(image: UIImage, tags: [String]) async throws -> Bool {
+//        guard let uid = Auth.auth().currentUser?.uid else {
+//            throw NSError(domain: "Authentication", code: 0, userInfo: [NSLocalizedDescriptionKey: "User not authenticated"])
+//        }
+//        
+//        do {
+//            let imageURL = try await ImageUploader.uploadImage(image: image)
+//            
+//            let data = [
+//                "uid": uid,
+//                "imageURL": imageURL,
+//                "tags": tags,
+//                "timestamp": Timestamp(date: Date())
+//            ] as [String : Any]
+//            
+//            try await Firestore.firestore().collection("posts").document().setData(data)
+//            
+//            return true
+//        } catch {
+//            print("DEBUG: Failed to upload post with error: \(error.localizedDescription)")
+//            return false
+//        }
+//    }
+    
+    
     
     func fetchPosts (completion: @escaping([Post]) -> Void) {
         Firestore.firestore().collection("posts")

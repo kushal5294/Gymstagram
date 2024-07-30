@@ -9,21 +9,39 @@ import Firebase
 
 struct FriendService {
     
-    func sendFriendRequest(user1: String, user2: String, completion: @escaping(Bool) -> Void) {
-            let db = Firestore.firestore()
-            let data = ["sender": user1,
-                        "recipient": user2,
-                        "timestamp": Timestamp(date: Date())] as [String : Any]
-            
+//    func sendFriendRequest(user1: String, user2: String, completion: @escaping(Bool) -> Void) {
+//            let db = Firestore.firestore()
+//            let data = ["sender": user1,
+//                        "recipient": user2,
+//                        "timestamp": Timestamp(date: Date())] as [String : Any]
+//            
+//            db.collection("friend_requests").addDocument(data: data) { error in
+//                if let error = error {
+//                    print("Error sending friend request: \(error.localizedDescription)")
+//                    completion(false)
+//                } else {
+//                    completion(true)
+//                }
+//            }
+//        }
+    
+    func sendFriendRequest(user1: String, user2: String) async throws -> Bool {
+        let db = Firestore.firestore()
+        let data = ["sender": user1,
+                    "recipient": user2,
+                    "timestamp": Timestamp(date: Date())] as [String : Any]
+
+        return try await withCheckedThrowingContinuation { continuation in
             db.collection("friend_requests").addDocument(data: data) { error in
                 if let error = error {
                     print("Error sending friend request: \(error.localizedDescription)")
-                    completion(false)
+                    continuation.resume(throwing: error)
                 } else {
-                    completion(true)
+                    continuation.resume(returning: true)
                 }
             }
         }
+    }
         
     func acceptFriendRequest(user1: String, user2: String, completion: @escaping(Bool) -> Void) {
         let db = Firestore.firestore()

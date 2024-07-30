@@ -78,7 +78,27 @@ struct uploadPost: View {
                 } else {
                     print("No image selected")
                 }
-            }) {
+            })
+            
+//            Button(action: {
+//                Task {
+//                    if let image = selectedImage {
+//                        do {
+//                            let success = try await service.uploadPost(image: image, tags: tags)
+//                            if success {
+//                                print("Post uploaded")
+//                            } else {
+//                                print("Post upload failed")
+//                            }
+//                        } catch {
+//                            print("Post upload failed with error: \(error.localizedDescription)")
+//                        }
+//                    } else {
+//                        print("No image selected")
+//                    }
+//                }
+//            }) 
+            {
                 Text("Create Post")
                     .frame(maxWidth: .infinity)
                     .padding()

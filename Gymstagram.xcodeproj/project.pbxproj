@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		530C62052C594D9F0028A8E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 530C62042C594D9F0028A8E7 /* GoogleService-Info.plist */; };
 		53769DBD2C558238003A3AC6 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53769DBC2C558238003A3AC6 /* Alerts.swift */; };
 		5395FC5D2C581820000FBDCF /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5395FC5C2C581820000FBDCF /* AddFriendView.swift */; };
 		53FF6C642C5595ED0028AFAA /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FF6C632C5595ED0028AFAA /* FriendView.swift */; };
@@ -84,7 +85,6 @@
 		55C324C62C55B3AB00BEA1EC /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C324C52C55B3AB00BEA1EC /* PostView.swift */; };
 		55C324C82C55B8E800BEA1EC /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C324C72C55B8E800BEA1EC /* TagView.swift */; };
 		55C324CA2C55C03D00BEA1EC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C324C92C55C03D00BEA1EC /* Date.swift */; };
-		55DF96542C5892AB00A654A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55DF96532C5892AB00A654A6 /* GoogleService-Info.plist */; };
 		55E27A342C47518500745AD4 /* GymstagramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E27A332C47518500745AD4 /* GymstagramApp.swift */; };
 		55E27A362C47518500745AD4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E27A352C47518500745AD4 /* ContentView.swift */; };
 		55E27A382C47518600745AD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55E27A372C47518600745AD4 /* Assets.xcassets */; };
@@ -92,6 +92,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		530C62042C594D9F0028A8E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		53769DBC2C558238003A3AC6 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Alerts.swift; path = Gymstagram/Alerts.swift; sourceTree = SOURCE_ROOT; };
 		5395FC5C2C581820000FBDCF /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
 		53FF6C632C5595ED0028AFAA /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
@@ -114,7 +115,6 @@
 		55C324C52C55B3AB00BEA1EC /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		55C324C72C55B8E800BEA1EC /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		55C324C92C55C03D00BEA1EC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		55DF96532C5892AB00A654A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		55E27A302C47518400745AD4 /* Gymstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gymstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E27A332C47518500745AD4 /* GymstagramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymstagramApp.swift; sourceTree = "<group>"; };
 		55E27A352C47518500745AD4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -344,7 +344,7 @@
 				553E1ED92C4DC25200E27DA4 /* Service */,
 				55E27A352C47518500745AD4 /* ContentView.swift */,
 				55E27A372C47518600745AD4 /* Assets.xcassets */,
-				55DF96532C5892AB00A654A6 /* GoogleService-Info.plist */,
+				530C62042C594D9F0028A8E7 /* GoogleService-Info.plist */,
 				55E27A392C47518600745AD4 /* Preview Content */,
 			);
 			path = Gymstagram;
@@ -478,7 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55E27A3B2C47518600745AD4 /* Preview Assets.xcassets in Resources */,
-				55DF96542C5892AB00A654A6 /* GoogleService-Info.plist in Resources */,
+				530C62052C594D9F0028A8E7 /* GoogleService-Info.plist in Resources */,
 				55E27A382C47518600745AD4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -647,7 +647,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Gymstagram/Preview Content\"";
-				DEVELOPMENT_TEAM = K45T3SH93R;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = GymRat;
@@ -677,7 +677,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Gymstagram/Preview Content\"";
-				DEVELOPMENT_TEAM = K45T3SH93R;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = GymRat;
