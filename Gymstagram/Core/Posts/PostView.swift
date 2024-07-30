@@ -10,9 +10,11 @@ import Kingfisher
 
 struct PostView: View {
     var post: Post
-    @State private var isLiked = false
+    @State private var isLiked: Bool = false
     @State private var postOwner: User? = nil
+    @EnvironmentObject var viewModel: AuthViewModel
     private let userService = UserService()
+    private let postService = PostService()
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -57,7 +59,12 @@ struct PostView: View {
             
             HStack{
                 Button(action: {
-                    self.isLiked = !self.isLiked
+                    self.isLiked.toggle()
+                    Task {
+                        if let usr = viewModel.currentUser {
+                            await postService.handleLike(likerUid: usr.id!, postID: post.id!)
+                        }
+                    }
                     
                 }, label: {
                     Image(systemName: isLiked ? "heart.fill" : "heart")
@@ -76,10 +83,16 @@ struct PostView: View {
         }
         .padding(.vertical, 8)
         .onAppear {
-                    userService.fetchUser(withUid: post.uid) { user in
-                        postOwner = user
-                    }
+            userService.fetchUser(withUid: post.uid) { user in
+                postOwner = user
+            }
+            Task {
+                if let usr = viewModel.currentUser {
+                    let liked = await postService.isLiked(likerUid: usr.id!, postID: post.id!)
+                    self.isLiked = liked
                 }
+            }
+        }
     }
         
 }

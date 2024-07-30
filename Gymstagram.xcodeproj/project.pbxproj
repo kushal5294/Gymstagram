@@ -11,7 +11,6 @@
 		5395FC5D2C581820000FBDCF /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5395FC5C2C581820000FBDCF /* AddFriendView.swift */; };
 		53FF6C642C5595ED0028AFAA /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FF6C632C5595ED0028AFAA /* FriendView.swift */; };
 		53FF6C682C559B9A0028AFAA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 53FF6C672C559B9A0028AFAA /* Kingfisher */; };
-		53FF6C6A2C56AF5C0028AFAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53FF6C692C56AF5C0028AFAA /* GoogleService-Info.plist */; };
 		553E1EE42C4DC52200E27DA4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 553E1EE32C4DC52200E27DA4 /* FirebaseAnalytics */; };
 		553E1EE62C4DC52200E27DA4 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 553E1EE52C4DC52200E27DA4 /* FirebaseAnalyticsOnDeviceConversion */; };
 		553E1EE82C4DC52200E27DA4 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 553E1EE72C4DC52200E27DA4 /* FirebaseAnalyticsSwift */; };
@@ -46,6 +45,7 @@
 		553E1F412C4DCC4600E27DA4 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 553E1F402C4DCC4600E27DA4 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		553E1F432C4DCC4600E27DA4 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 553E1F422C4DCC4600E27DA4 /* FirebaseAppCheck */; };
 		553E1F452C4DCEFD00E27DA4 /* userService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553E1F442C4DCEFD00E27DA4 /* userService.swift */; };
+		5583BFD22C58A19400236768 /* friendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5583BFD12C58A19400236768 /* friendService.swift */; };
 		558E45ED2C4DE23300CED97C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 558E45EC2C4DE23300CED97C /* FirebaseAnalytics */; };
 		558E45EF2C4DE23300CED97C /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 558E45EE2C4DE23300CED97C /* FirebaseAnalyticsOnDeviceConversion */; };
 		558E45F12C4DE23300CED97C /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 558E45F02C4DE23300CED97C /* FirebaseAnalyticsSwift */; };
@@ -83,6 +83,7 @@
 		55C324C62C55B3AB00BEA1EC /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C324C52C55B3AB00BEA1EC /* PostView.swift */; };
 		55C324C82C55B8E800BEA1EC /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C324C72C55B8E800BEA1EC /* TagView.swift */; };
 		55C324CA2C55C03D00BEA1EC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C324C92C55C03D00BEA1EC /* Date.swift */; };
+		55DF96542C5892AB00A654A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55DF96532C5892AB00A654A6 /* GoogleService-Info.plist */; };
 		55E27A342C47518500745AD4 /* GymstagramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E27A332C47518500745AD4 /* GymstagramApp.swift */; };
 		55E27A362C47518500745AD4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E27A352C47518500745AD4 /* ContentView.swift */; };
 		55E27A382C47518600745AD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55E27A372C47518600745AD4 /* Assets.xcassets */; };
@@ -93,7 +94,6 @@
 		53769DBC2C558238003A3AC6 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Alerts.swift; path = Gymstagram/Alerts.swift; sourceTree = SOURCE_ROOT; };
 		5395FC5C2C581820000FBDCF /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
 		53FF6C632C5595ED0028AFAA /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
-		53FF6C692C56AF5C0028AFAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		553E1EF12C4DC66700E27DA4 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		553E1EF42C4DC69200E27DA4 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		553E1EFD2C4DC6E100E27DA4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -102,6 +102,7 @@
 		553E1F112C4DC81700E27DA4 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		553E1F162C4DC85900E27DA4 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		553E1F442C4DCEFD00E27DA4 /* userService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userService.swift; sourceTree = "<group>"; };
+		5583BFD12C58A19400236768 /* friendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friendService.swift; sourceTree = "<group>"; };
 		558E46242C4DE4A400CED97C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		55BDE8D62C557542001E6A51 /* postService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postService.swift; sourceTree = "<group>"; };
 		55BDE8D82C557A5B001E6A51 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 		55C324C52C55B3AB00BEA1EC /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		55C324C72C55B8E800BEA1EC /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		55C324C92C55C03D00BEA1EC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		55DF96532C5892AB00A654A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		55E27A302C47518400745AD4 /* Gymstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gymstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E27A332C47518500745AD4 /* GymstagramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymstagramApp.swift; sourceTree = "<group>"; };
 		55E27A352C47518500745AD4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			children = (
 				553E1F442C4DCEFD00E27DA4 /* userService.swift */,
 				55BDE8D62C557542001E6A51 /* postService.swift */,
+				5583BFD12C58A19400236768 /* friendService.swift */,
 				55BDE8DA2C5581ED001E6A51 /* imageUploader.swift */,
 			);
 			path = Service;
@@ -338,7 +341,7 @@
 				553E1ED92C4DC25200E27DA4 /* Service */,
 				55E27A352C47518500745AD4 /* ContentView.swift */,
 				55E27A372C47518600745AD4 /* Assets.xcassets */,
-				53FF6C692C56AF5C0028AFAA /* GoogleService-Info.plist */,
+				55DF96532C5892AB00A654A6 /* GoogleService-Info.plist */,
 				55E27A392C47518600745AD4 /* Preview Content */,
 			);
 			path = Gymstagram;
@@ -472,8 +475,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				55E27A3B2C47518600745AD4 /* Preview Assets.xcassets in Resources */,
+				55DF96542C5892AB00A654A6 /* GoogleService-Info.plist in Resources */,
 				55E27A382C47518600745AD4 /* Assets.xcassets in Resources */,
-				53FF6C6A2C56AF5C0028AFAA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +495,7 @@
 				55BDE8D92C557A5B001E6A51 /* Post.swift in Sources */,
 				553E1EF52C4DC69200E27DA4 /* SignInView.swift in Sources */,
 				553E1EFE2C4DC6E100E27DA4 /* MainView.swift in Sources */,
+				5583BFD22C58A19400236768 /* friendService.swift in Sources */,
 				55BDE8DB2C5581ED001E6A51 /* imageUploader.swift in Sources */,
 				55C324C62C55B3AB00BEA1EC /* PostView.swift in Sources */,
 				553E1F452C4DCEFD00E27DA4 /* userService.swift in Sources */,
@@ -642,6 +646,7 @@
 				DEVELOPMENT_TEAM = K45T3SH93R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = GymRat;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -671,6 +676,7 @@
 				DEVELOPMENT_TEAM = K45T3SH93R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = GymRat;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

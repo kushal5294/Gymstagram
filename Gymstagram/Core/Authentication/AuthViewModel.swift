@@ -71,7 +71,8 @@ class AuthViewModel: ObservableObject {
                     "username": username.lowercased(),
                     "firstname": firstname,
                     "lastname": lastname,
-                    "credits": 0
+                    "credits": 0,
+                    "caption": "",
                 ]
                 
                 Firestore.firestore().collection("users").document(user.uid).setData(data) { error in

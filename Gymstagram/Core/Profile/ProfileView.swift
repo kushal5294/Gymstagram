@@ -35,6 +35,13 @@ import SwiftUI
 import SwiftUI
 
 struct ProfileView: View {
+    @EnvironmentObject var authViewModel: AuthViewModel
+    @State private var user: User? = nil
+    @State private var posts: [Post]? = nil
+    private var postService = PostService()
+    private var friendService = FriendService()
+    @State var friends: Int = 0
+
     var body: some View {
         NavigationView {
             ScrollView {
@@ -52,14 +59,14 @@ struct ProfileView: View {
 
                             HStack (spacing: 30){
                                 VStack {
-                                    Text("0")
-                                    Text("Posts")
+                                    Text(posts != nil ? "\(posts!.count)" : "0")
+                                    Text(posts != nil && posts!.count == 1 ? "Post" : "Posts")
                                 }
                                 .font(.title3)
                                 
                                 VStack {
-                                    Text("0")
-                                    Text("Friends")
+                                    Text("\(friends)")
+                                    Text(friends == 1 ? "Friend" : "Friends")
                                 }
                                 .font(.title3)
                                 
@@ -79,10 +86,10 @@ struct ProfileView: View {
 
                     // Profile Details
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Adam Chouman")
+                        Text((user != nil) ? "\(user!.firstname) \(user!.lastname)" : "Firstname Lastname")
                             .font(.headline)
                         
-                        Text("Big fucking gorilla")
+                        Text(user != nil ? "\(user!.caption)" : "No Caption")
                             .font(.subheadline)
                     }
                     .padding(.horizontal)
@@ -113,13 +120,33 @@ struct ProfileView: View {
                     .padding(.horizontal, 1)
                 }
             }
-            .navigationBarTitle("adamchouman", displayMode: .inline)
+            .navigationBarTitle((user != nil) ? "\(user!.username)" : "Username", displayMode: .inline)
+            .navigationBarItems(leading: Button(action: {
+                            authViewModel.signOut()
+                        }) {
+                            Text("Sign Out")
+                                .foregroundColor(.blue)
+                        })
             .navigationBarItems(trailing: Button(action: {
                 print("Settings tapped")
             }) {
                 Image(systemName: "gear")
                     .foregroundColor(.blue)
             })
+            .onAppear {
+                self.user = authViewModel.currentUser
+                if let userId = self.user?.id {
+                    postService.fetchUserPosts(forUid: userId) { posts in
+                        self.posts = posts
+                    }
+                    friendService.fetchFriends(forUid: userId) { friends in
+                        self.friends = friends.count
+                    }
+                    
+                } else {
+                    print("User ID is nil")
+                }
+            }
         }
     }
 }

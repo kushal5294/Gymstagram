@@ -43,7 +43,7 @@ struct PostService{
     }
     
     func fetchPosts (forUid uid: String, completion: @escaping([Post]) -> Void) {
-        fetchFriends(forUid: uid) { friends in
+        FriendService().fetchFriends(forUid: uid) { friends in
             Firestore.firestore().collection("posts")
                 .whereField("uid", arrayContains: friends)
                 .getDocuments { snapshot, _ in
@@ -56,50 +56,53 @@ struct PostService{
         
     }
     
-    func fetchFriends(forUid uid: String, completion: @escaping([String]) -> Void) {
-        let db = Firestore.firestore()
-        var friends: [String] = []
-        
-        // Don't know how to do in 1 pass, so it is seperated for now
-        db.collection("friends")
-            .whereField("user1", isEqualTo: uid)
-            .getDocuments { snapshot, error in
-                if let error = error {
-                    print("Error fetching friends: \(error)")
-                    completion([])
-                    return
-                }
-                
-                if let documents = snapshot?.documents {
-                    for document in documents {
-                        let data = document.data()
-                        if let user2 = data["user2"] as? String {
-                            friends.append(user2)
-                        }
-                    }
-                }
-                
-                db.collection("friends")
-                    .whereField("user2", isEqualTo: uid)
-                    .getDocuments { snapshot, error in
-                        if let error = error {
-                            print("Error fetching friends: \(error)")
-                            completion([])
-                            return
-                        }
-                        
-                        if let documents = snapshot?.documents {
-                            for document in documents {
-                                let data = document.data()
-                                if let user1 = data["user1"] as? String {
-                                    friends.append(user1)
-                                }
-                            }
-                        }
-                        
-                        let filteredFriends = friends.filter { $0 != uid }
-                        completion(filteredFriends)
-                    }
+    func fetchUserPosts (forUid uid: String, completion: @escaping([Post]) -> Void) {
+        Firestore.firestore().collection("posts")
+            .whereField("uid", isEqualTo: uid)
+            .getDocuments { snapshot, _ in
+                guard let document = snapshot?.documents else { return }
+                let posts = document.compactMap({ try? $0.data(as: Post.self)  })
+                completion(posts)
             }
     }
+    
+    func isLiked(likerUid: String, postID: String) async -> Bool {
+        let db = Firestore.firestore()
+        do {
+            let snapshot = try await db.collection("likes")
+                .whereField("postID", isEqualTo: postID)
+                .whereField("uid", isEqualTo: likerUid)
+                .getDocuments()
+            return !snapshot.documents.isEmpty
+        } catch {
+            print("Error checking like status: \(error.localizedDescription)")
+            return false
+        }
+    }
+    
+    
+    func handleLike(likerUid: String, postID: String) async -> Void {
+        let liked = await isLiked(likerUid: likerUid, postID: postID)
+        let db = Firestore.firestore()
+        do {
+            if liked {
+                let snapshot = try await db.collection("likes")
+                    .whereField("postID", isEqualTo: postID)
+                    .whereField("uid", isEqualTo: likerUid)
+                    .getDocuments()
+                if let document = snapshot.documents.first {
+                    try await document.reference.delete()
+                    return
+                }
+            } else {
+                let data = ["postID": postID, "uid": likerUid, "timestamp": Timestamp(date: Date())] as [String : Any]
+                try await db.collection("likes").addDocument(data: data)
+                return
+            }
+        } catch {
+            print("Error handling like: \(error.localizedDescription)")
+            return
+        }
+    }
+    
 }

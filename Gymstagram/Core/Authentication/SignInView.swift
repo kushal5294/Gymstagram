@@ -49,6 +49,40 @@ struct SignInView: View {
                                         .cornerRadius(10)
                                         .padding()
                                 }
+                // helper buttins for developemnt
+                Button(action: {
+                    viewModel.login(withEmail: "choum@gmail.com", password: "qqqqqq")
+                }) {
+                    Text("choumberg login")
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                        .padding()
+                }
+                Button(action: {
+                    viewModel.login(withEmail: "sco@gmail.com", password: "qqqqqq")
+                }) {
+                    Text("bigsco18 login")
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                        .padding()
+                }
+                Button(action: {
+                    viewModel.login(withEmail: "kushal@gmail.com", password: "qqqqqq")
+                }) {
+                    Text("krox login")
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                        .padding()
+                }
                                 
                 
                 
