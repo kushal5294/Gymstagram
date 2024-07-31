@@ -55,16 +55,29 @@ struct PostService {
     
     
     
-    func fetchPosts (completion: @escaping([Post]) -> Void) {
-        Firestore.firestore().collection("posts")
-            .order(by: "timestamp", descending: true)
-            .getDocuments { snapshot, _ in
-                guard let document = snapshot?.documents else { return }
-                let posts = document.compactMap({ try? $0.data(as: Post.self)  })
-                completion(posts)
-            }
+//    func fetchPosts (completion: @escaping([Post]) -> Void) {
+//        Firestore.firestore().collection("posts")
+//            .order(by: "timestamp", descending: true)
+//            .getDocuments { snapshot, _ in
+//                guard let document = snapshot?.documents else { return }
+//                let posts = document.compactMap({ try? $0.data(as: Post.self)  })
+//                completion(posts)
+//            }
+//        
+//        
+//    }
+    
+    func fetchPosts() async throws -> [Post] {
+        let db = Firestore.firestore()
+        let query = db.collection("posts").order(by: "timestamp", descending: true)
         
-        
+        do {
+            let snapshot = try await query.getDocumentsAsync()
+            let posts = snapshot.documents.compactMap { try? $0.data(as: Post.self) }
+            return posts
+        } catch {
+            throw error
+        }
     }
     
     func fetchPosts (forUid uid: String, completion: @escaping([Post]) -> Void) {

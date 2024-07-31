@@ -144,6 +144,37 @@ struct FriendService {
             }
         }
     }
+    
+//    func removeFriends(user1: String, user2: String) async -> Bool {
+//        let db = Firestore.firestore()
+//        
+//        let friendsQuery = db.collection("friends")
+//            .whereField("user1", isEqualTo: user1)
+//            .whereField("user2", isEqualTo: user2)
+//        
+//        let reverseFriendsQuery = db.collection("friends")
+//            .whereField("user1", isEqualTo: user2)
+//            .whereField("user2", isEqualTo: user1)
+//        
+//        do {
+//            let snapshot1 = try await friendsQuery.getDocumentsAsync()
+//            let snapshot2 = try await reverseFriendsQuery.getDocumentsAsync()
+//            
+//            let allSnapshots = [snapshot1, snapshot2]
+//            let friends = allSnapshots.flatMap { $0.documents }
+//            
+//            guard let document = friends.first else {
+//                print("No friends document found")
+//                return false
+//            }
+//            
+//            try await document.reference.deleteAsync()
+//            return true
+//        } catch {
+//            print("Error removing friends: \(error.localizedDescription)")
+//            return false
+//        }
+//    }
 
     
     func fetchFriends(forUid uid: String, completion: @escaping([String]) -> Void) {
@@ -193,4 +224,7 @@ struct FriendService {
             }
     }
 }
+
+
+
 

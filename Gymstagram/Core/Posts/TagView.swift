@@ -11,8 +11,8 @@ struct TagView: View {
     var tags: [String]
 
     var body: some View {
-        HStack() {
-            ForEach(tags, id: \.self) { tag in
+        HStack {
+            ForEach(tags.filter { !$0.isEmpty }, id: \.self) { tag in
                 let color = randomColor()
                 Text(tag)
                     .padding(8)

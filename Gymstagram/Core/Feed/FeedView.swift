@@ -37,9 +37,11 @@ struct FeedView: View {
                         }
                     }
                 }
-                .onAppear {
-                    service.fetchPosts { fetchedPosts in
-                        posts = fetchedPosts
+                .task {
+                    do {
+                        posts = try await service.fetchPosts()
+                    } catch {
+                        print("Failed to fetch posts: \(error.localizedDescription)")
                     }
                 }
             }
