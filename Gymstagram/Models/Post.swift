@@ -14,4 +14,5 @@ struct Post: Identifiable, Decodable {
     let timestamp: Timestamp
     let imageURL: String
     var tags: [String]
+    var caption: String
 }

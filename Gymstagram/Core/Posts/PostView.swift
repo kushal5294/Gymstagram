@@ -55,6 +55,11 @@ struct PostView: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: UIScreen.main.bounds.width)
                 .clipped()
+            
+            Text(post.caption)
+                    .font(.body)
+                    .padding(.horizontal, 10)
+                    .padding(.top, 8)
                 
             
             HStack{

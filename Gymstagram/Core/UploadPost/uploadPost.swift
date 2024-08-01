@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct uploadPost: View {
+    @State private var caption: String = ""
     @State private var tags: [String] = [""]
     @State private var selectedImage: UIImage?
     @State private var showImagePicker = false
@@ -41,6 +42,9 @@ struct uploadPost: View {
                     .frame(height: 200)
                     .cornerRadius(10)
             }
+            
+            TextField("Caption", text: $caption)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
 
             Text("Tags")
                 .font(.headline)
@@ -84,7 +88,7 @@ struct uploadPost: View {
                 Task {
                     if let image = selectedImage {
                         do {
-                            let success = try await service.uploadPost(image: image, tags: tags)
+                            let success = try await service.uploadPost(image: image, tags: tags, caption: caption)
                             if success {
                                 print("Post uploaded")
                             } else {
