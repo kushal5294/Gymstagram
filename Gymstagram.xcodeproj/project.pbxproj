@@ -11,6 +11,8 @@
 		530C62072C5AD35D0028A8E7 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530C62062C5AD35D0028A8E7 /* Query.swift */; };
 		530C62092C5AD3B10028A8E7 /* DocumentReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530C62082C5AD3B10028A8E7 /* DocumentReference.swift */; };
 		530C620B2C5AD4000028A8E7 /* StorageReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530C620A2C5AD4000028A8E7 /* StorageReference.swift */; };
+		530C620D2C5E9B870028A8E7 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530C620C2C5E9B870028A8E7 /* Challenge.swift */; };
+		530C620F2C5E9D3D0028A8E7 /* ChallengeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530C620E2C5E9D3D0028A8E7 /* ChallengeService.swift */; };
 		53769DBD2C558238003A3AC6 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53769DBC2C558238003A3AC6 /* Alerts.swift */; };
 		5395FC5D2C581820000FBDCF /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5395FC5C2C581820000FBDCF /* AddFriendView.swift */; };
 		53FF6C642C5595ED0028AFAA /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FF6C632C5595ED0028AFAA /* FriendView.swift */; };
@@ -99,6 +101,8 @@
 		530C62062C5AD35D0028A8E7 /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
 		530C62082C5AD3B10028A8E7 /* DocumentReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentReference.swift; sourceTree = "<group>"; };
 		530C620A2C5AD4000028A8E7 /* StorageReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageReference.swift; sourceTree = "<group>"; };
+		530C620C2C5E9B870028A8E7 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		530C620E2C5E9D3D0028A8E7 /* ChallengeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeService.swift; sourceTree = "<group>"; };
 		53769DBC2C558238003A3AC6 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Alerts.swift; path = Gymstagram/Alerts.swift; sourceTree = SOURCE_ROOT; };
 		5395FC5C2C581820000FBDCF /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
 		53FF6C632C5595ED0028AFAA /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				55BDE8D62C557542001E6A51 /* postService.swift */,
 				5583BFD12C58A19400236768 /* friendService.swift */,
 				55BDE8DA2C5581ED001E6A51 /* imageUploader.swift */,
+				530C620E2C5E9D3D0028A8E7 /* ChallengeService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 			children = (
 				558E46242C4DE4A400CED97C /* User.swift */,
 				55BDE8D82C557A5B001E6A51 /* Post.swift */,
+				530C620C2C5E9B870028A8E7 /* Challenge.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -509,6 +515,7 @@
 				553E1EF52C4DC69200E27DA4 /* SignInView.swift in Sources */,
 				553E1EFE2C4DC6E100E27DA4 /* MainView.swift in Sources */,
 				5583BFD22C58A19400236768 /* friendService.swift in Sources */,
+				530C620F2C5E9D3D0028A8E7 /* ChallengeService.swift in Sources */,
 				55BDE8DB2C5581ED001E6A51 /* imageUploader.swift in Sources */,
 				55C324C62C55B3AB00BEA1EC /* PostView.swift in Sources */,
 				553E1F452C4DCEFD00E27DA4 /* userService.swift in Sources */,
@@ -520,6 +527,7 @@
 				530C62092C5AD3B10028A8E7 /* DocumentReference.swift in Sources */,
 				553E1F0E2C4DC7B600E27DA4 /* ProfileView.swift in Sources */,
 				553E1F172C4DC85900E27DA4 /* AuthViewModel.swift in Sources */,
+				530C620D2C5E9B870028A8E7 /* Challenge.swift in Sources */,
 				55C324CA2C55C03D00BEA1EC /* Date.swift in Sources */,
 				530C620B2C5AD4000028A8E7 /* StorageReference.swift in Sources */,
 				55BDE8E32C558C4B001E6A51 /* imagePicker.swift in Sources */,

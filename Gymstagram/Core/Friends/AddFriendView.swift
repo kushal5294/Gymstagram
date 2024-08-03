@@ -16,12 +16,11 @@ struct AddFriendView: View {
             Form {
                 Section(header: Text("Add a new friend")) {
                     TextField("Friend's name", text: $friendName)
+                        .autocapitalization(.none)
                 }
                 Section {
                     Button("Add Friend") {
-                        // Add friend logic goes here
-                        //presentationMode.wrappedValue.dismiss()
-                    }
+                                            }
                 }
             }
             .navigationTitle("Add Friend")
