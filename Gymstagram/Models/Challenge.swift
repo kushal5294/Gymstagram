@@ -8,7 +8,7 @@
 import FirebaseFirestoreSwift
 import Firebase
 
-struct Challenge: Identifiable {
+struct Challeng1e: Identifiable {
     @DocumentID var id: String?
     var startTime: Date
     var endTime: Date

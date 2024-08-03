@@ -22,7 +22,7 @@ struct MainView: View {
                         Image(systemName: "list.bullet")
                         Text("Feed")
                     }
-                ChallengeView()
+                ChallengeView(challenges: sampleChallenges)
                     .tabItem {
                         Image(systemName: "dumbbell")
                         Text("Challenges")
