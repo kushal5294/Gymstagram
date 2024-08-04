@@ -8,13 +8,23 @@
 import FirebaseFirestoreSwift
 import Firebase
 
-struct Challeng1e: Identifiable {
+//struct Challenge: Identifiable {
+//    @DocumentID var id: String?
+//    var startTime: Date
+//    var endTime: Date
+//    var challengeDescription: String
+//    var sender: String
+//    var receivers: [Receiver]
+//}
+
+struct Challenge: Identifiable {
     @DocumentID var id: String?
-    var startTime: Date
-    var endTime: Date
-    var challengeDescription: String
-    var sender: String
-    var receivers: [Receiver]
+    var startDate: Date
+    var endDate: Date
+    var description: String
+    //var sender: String
+    //var receivers: [Receiver]
+    var numberOfPeople: Int
 }
 
 struct Receiver {

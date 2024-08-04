@@ -5,15 +5,16 @@
 //  Created by Kushal Patel on 7/21/24.
 //
 import SwiftUI
+import Firebase
 
 // Define a Challenge model
-struct Challenge: Identifiable {
-    let id = UUID()
-    let startDate: Date
-    let endDate: Date
-    let description: String
-    let numberOfPeople: Int
-}
+//struct Challenge: Identifiable {
+//    let id = UUID()
+//    let startDate: Date
+//    let endDate: Date
+//    let description: String
+//    let numberOfPeople: Int
+//}
 
 // Sample data
 let sampleChallenges = [
