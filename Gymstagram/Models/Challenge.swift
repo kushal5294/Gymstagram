@@ -28,7 +28,7 @@ struct Challenge: Identifiable {
 }
 
 struct Receiver {
-    var id: String
+    var username: String
     var status: ChallengeStatus
 }
 
