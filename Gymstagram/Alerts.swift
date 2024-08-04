@@ -68,5 +68,12 @@ struct AlertContext {
     static let userSaveFailure =    AlertItem(title: Text("Profile Error"),
                                             message:Text("There was an error saving or retrieving your profile"),
                                             dismissButton: .default(Text("OK")))
+    
+    
+    //MARK: - Account Alerts
+    
+    static let noImageSelected =    AlertItem(title: Text("Choose an image you fucking idiot"),
+                                            message:Text("Nice one dumbass"),
+                                            dismissButton: .default(Text("I'll be better next time")))
 }
 

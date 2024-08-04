@@ -12,6 +12,8 @@ struct uploadPost: View {
     @State private var tags: [String] = [""]
     @State private var selectedImage: UIImage?
     @State private var showImagePicker = false
+    @State private var showAlert: AlertItem?
+    
     private let service = PostService()
 
     var body: some View {
@@ -98,7 +100,8 @@ struct uploadPost: View {
                             print("Post upload failed with error: \(error.localizedDescription)")
                         }
                     } else {
-                        print("No image selected")
+                        print("no image selected")
+                        showAlert = AlertContext.noImageSelected
                     }
                 }
             }) 
@@ -113,6 +116,9 @@ struct uploadPost: View {
         }
         .padding()
         .navigationTitle("Create Post")
+        .alert(item: $showAlert) { alertItem in
+            Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+        }
     }
 }
 
