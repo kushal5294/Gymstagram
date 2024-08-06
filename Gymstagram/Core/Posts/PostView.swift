@@ -1,10 +1,3 @@
-//
-//  PostView.swift
-//  Gymstagram
-//
-//  Created by Kushal Patel on 7/27/24.
-//
-
 import SwiftUI
 import Kingfisher
 
@@ -13,6 +6,7 @@ struct PostView: View {
     @State private var isLiked: Bool = false
     @State private var postOwner: User? = nil
     @State private var showLikeAnimation: Bool = false
+    @State private var likeCount: Int = 0
     @EnvironmentObject var viewModel: AuthViewModel
     private let userService = UserService()
     private let postService = PostService()
@@ -54,21 +48,21 @@ struct PostView: View {
                     }
                 
                 if showLikeAnimation {
-                        GeometryReader { geometry in
-                            Image(systemName: "heart.fill")
-                                .font(.system(size: 100))
-                                .foregroundColor(.blue)
-                                .scaleEffect(showLikeAnimation ? 1.0 : 0.5)
-                                .opacity(showLikeAnimation ? 1.0 : 0.0)
-                                .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
-                                .animation(Animation.spring(response: 1.0, dampingFraction: 0.4, blendDuration: 0.5), value: showLikeAnimation)
-                                .onAppear {
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                        showLikeAnimation = false
-                                    }
+                    GeometryReader { geometry in
+                        Image(systemName: "heart.fill")
+                            .font(.system(size: 100))
+                            .foregroundColor(.blue)
+                            .scaleEffect(showLikeAnimation ? 1.0 : 0.5)
+                            .opacity(showLikeAnimation ? 1.0 : 0.0)
+                            .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+                            .animation(Animation.spring(response: 1.0, dampingFraction: 0.4, blendDuration: 0.5), value: showLikeAnimation)
+                            .onAppear {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    showLikeAnimation = false
                                 }
-                        }
+                            }
                     }
+                }
             }
             
             Text(post.caption)
@@ -86,6 +80,10 @@ struct PostView: View {
                         .foregroundColor(.blue)
                 })
                 
+                Text("\(likeCount) likes") // Display like count
+                    .font(.body)
+                    .padding(.horizontal, 10)
+                
                 TagView(tags: post.tags)
             }
             .padding(.top, 8)
@@ -100,6 +98,7 @@ struct PostView: View {
                     let liked = await postService.isLiked(likerUid: usr.id!, postID: post.id!)
                     self.isLiked = liked
                 }
+                likeCount = await postService.fetchLikeCount(forPostID: post.id!)
             }
         }
     }
@@ -109,6 +108,8 @@ struct PostView: View {
         Task {
             if let usr = viewModel.currentUser {
                 await postService.handleLike(likerUid: usr.id!, postID: post.id!)
+                // Update like count after handling like
+                likeCount = await postService.fetchLikeCount(forPostID: post.id!)
             }
         }
     }

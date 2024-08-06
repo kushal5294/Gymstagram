@@ -143,5 +143,18 @@ struct PostService {
             return
         }
     }
+    func fetchLikeCount(forPostID postID: String) async -> Int {
+        let db = Firestore.firestore()
+        do {
+            let snapshot = try await db.collection("likes")
+                .whereField("postID", isEqualTo: postID)
+                .getDocuments()
+            return snapshot.documents.count
+        } catch {
+            print("Error fetching like count: \(error.localizedDescription)")
+            return 0
+        }
+    }
+
     
 }
