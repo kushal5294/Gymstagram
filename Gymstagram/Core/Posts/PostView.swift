@@ -87,6 +87,8 @@ struct PostView: View {
                 TagView(tags: post.tags)
             }
             .padding(.top, 8)
+            
+            CommentView(post: post)
         }
         .padding(.vertical, 8)
         .onAppear {
