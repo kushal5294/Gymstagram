@@ -16,6 +16,10 @@
 		53769DBD2C558238003A3AC6 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53769DBC2C558238003A3AC6 /* Alerts.swift */; };
 		5395FC5D2C581820000FBDCF /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5395FC5C2C581820000FBDCF /* AddFriendView.swift */; };
 		53BE21AE2C60658D00AFF4D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53BE21AD2C60658C00AFF4D1 /* GoogleService-Info.plist */; };
+		53BE21B02C62B76400AFF4D1 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BE21AF2C62B76400AFF4D1 /* Comment.swift */; };
+		53BE21B22C62B7D400AFF4D1 /* commentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BE21B12C62B7D400AFF4D1 /* commentService.swift */; };
+		53BE21B52C62B85100AFF4D1 /* CommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BE21B42C62B85100AFF4D1 /* CommentsViewModel.swift */; };
+		53BE21B72C62B8A000AFF4D1 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BE21B62C62B8A000AFF4D1 /* CommentsView.swift */; };
 		53FF6C642C5595ED0028AFAA /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FF6C632C5595ED0028AFAA /* FriendView.swift */; };
 		53FF6C682C559B9A0028AFAA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 53FF6C672C559B9A0028AFAA /* Kingfisher */; };
 		553E1EE42C4DC52200E27DA4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 553E1EE32C4DC52200E27DA4 /* FirebaseAnalytics */; };
@@ -107,6 +111,10 @@
 		53769DBC2C558238003A3AC6 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Alerts.swift; path = Gymstagram/Alerts.swift; sourceTree = SOURCE_ROOT; };
 		5395FC5C2C581820000FBDCF /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
 		53BE21AD2C60658C00AFF4D1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		53BE21AF2C62B76400AFF4D1 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		53BE21B12C62B7D400AFF4D1 /* commentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentService.swift; sourceTree = "<group>"; };
+		53BE21B42C62B85100AFF4D1 /* CommentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewModel.swift; sourceTree = "<group>"; };
+		53BE21B62C62B8A000AFF4D1 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		53FF6C632C5595ED0028AFAA /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
 		553E1EF12C4DC66700E27DA4 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		553E1EF42C4DC69200E27DA4 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -200,6 +208,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53BE21B32C62B84000AFF4D1 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				53BE21B42C62B85100AFF4D1 /* CommentsViewModel.swift */,
+				53BE21B62C62B8A000AFF4D1 /* CommentsView.swift */,
+			);
+			path = Comments;
+			sourceTree = "<group>";
+		};
 		53FF6C652C5597050028AFAA /* Friends */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +235,7 @@
 				5583BFD12C58A19400236768 /* friendService.swift */,
 				55BDE8DA2C5581ED001E6A51 /* imageUploader.swift */,
 				530C620E2C5E9D3D0028A8E7 /* ChallengeService.swift */,
+				53BE21B12C62B7D400AFF4D1 /* commentService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -225,6 +243,7 @@
 		553E1EDA2C4DC25500E27DA4 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				53BE21B32C62B84000AFF4D1 /* Comments */,
 				55C324C42C55B39700BEA1EC /* Posts */,
 				53FF6C652C5597050028AFAA /* Friends */,
 				55BDE8DC2C558884001E6A51 /* UploadPost */,
@@ -243,6 +262,7 @@
 				558E46242C4DE4A400CED97C /* User.swift */,
 				55BDE8D82C557A5B001E6A51 /* Post.swift */,
 				530C620C2C5E9B870028A8E7 /* Challenge.swift */,
+				53BE21AF2C62B76400AFF4D1 /* Comment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -510,6 +530,7 @@
 			files = (
 				55BDE8E12C5588B9001E6A51 /* uploadPost.swift in Sources */,
 				553E1F122C4DC81700E27DA4 /* FeedView.swift in Sources */,
+				53BE21B72C62B8A000AFF4D1 /* CommentsView.swift in Sources */,
 				553E1EF22C4DC66700E27DA4 /* RegisterView.swift in Sources */,
 				55E27A362C47518500745AD4 /* ContentView.swift in Sources */,
 				553E1F0B2C4DC7AA00E27DA4 /* ChallengeView.swift in Sources */,
@@ -526,13 +547,16 @@
 				5583BFD42C58B4A600236768 /* FriendModel.swift in Sources */,
 				5395FC5D2C581820000FBDCF /* AddFriendView.swift in Sources */,
 				53FF6C642C5595ED0028AFAA /* FriendView.swift in Sources */,
+				53BE21B52C62B85100AFF4D1 /* CommentsViewModel.swift in Sources */,
 				55E27A342C47518500745AD4 /* GymstagramApp.swift in Sources */,
+				53BE21B22C62B7D400AFF4D1 /* commentService.swift in Sources */,
 				530C62092C5AD3B10028A8E7 /* DocumentReference.swift in Sources */,
 				553E1F0E2C4DC7B600E27DA4 /* ProfileView.swift in Sources */,
 				553E1F172C4DC85900E27DA4 /* AuthViewModel.swift in Sources */,
 				530C620D2C5E9B870028A8E7 /* Challenge.swift in Sources */,
 				55C324CA2C55C03D00BEA1EC /* Date.swift in Sources */,
 				530C620B2C5AD4000028A8E7 /* StorageReference.swift in Sources */,
+				53BE21B02C62B76400AFF4D1 /* Comment.swift in Sources */,
 				55BDE8E32C558C4B001E6A51 /* imagePicker.swift in Sources */,
 				53769DBD2C558238003A3AC6 /* Alerts.swift in Sources */,
 				530C62112C5F0D020028A8E7 /* ChallengeDetailView.swift in Sources */,

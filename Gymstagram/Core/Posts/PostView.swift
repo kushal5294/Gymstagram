@@ -1,10 +1,3 @@
-//
-//  PostView.swift
-//  Gymstagram
-//
-//  Created by Kushal Patel on 7/27/24.
-//
-
 import SwiftUI
 import Kingfisher
 
@@ -18,38 +11,32 @@ struct PostView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack{
-                // lzy loading; more optimal
+            HStack {
+                // Lazy loading; more optimal
                 if let owner = postOwner {
-                                    HStack {
-                                        Image(systemName: "person.circle.fill")
-                                            .font(.system(size: 23))
-
-                                        Text(owner.username)
-                                    }
-
-                                    .padding(.horizontal, 10)
-                                    .padding(.vertical, 5)
-                                } else {
-                                    // loading state
-                                    HStack {
-                                        Image(systemName: "person.circle.fill")
-                                            .font(.system(size: 23))
-
-                                        Text("Loading...")
-                                    }
-
-                                    .padding(.horizontal, 10)
-                                    .padding(.vertical, 5)
-                                }
-                
-                
+                    HStack {
+                        Image(systemName: "person.circle.fill")
+                            .font(.system(size: 23))
+                        Text(owner.username)
+                    }
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 5)
+                } else {
+                    // Loading state
+                    HStack {
+                        Image(systemName: "person.circle.fill")
+                            .font(.system(size: 23))
+                        Text("Loading...")
+                    }
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 5)
+                }
                 
                 Spacer()
-                Text("\(post.timestamp.dateValue().timeSince())" )
+                Text("\(post.timestamp.dateValue().timeSince())")
                     .padding(.trailing, 10)
-
             }
+            
             KFImage(URL(string: post.imageURL))
                 .resizable()
                 .aspectRatio(contentMode: .fill)
@@ -57,12 +44,11 @@ struct PostView: View {
                 .clipped()
             
             Text(post.caption)
-                    .font(.body)
-                    .padding(.horizontal, 10)
-                    .padding(.top, 8)
-                
+                .font(.body)
+                .padding(.horizontal, 10)
+                .padding(.top, 8)
             
-            HStack{
+            HStack {
                 Button(action: {
                     self.isLiked.toggle()
                     Task {
@@ -70,7 +56,6 @@ struct PostView: View {
                             await postService.handleLike(likerUid: usr.id!, postID: post.id!)
                         }
                     }
-                    
                 }, label: {
                     Image(systemName: isLiked ? "heart.fill" : "heart")
                         .font(.system(size: 34))
@@ -78,13 +63,12 @@ struct PostView: View {
                         .foregroundColor(.blue)
                 })
                 
-                
                 TagView(tags: post.tags)
             }
+            .padding(.top, 8)
             
-            .padding(.top,8)
-            
-            
+            // Comments Section
+            CommentView(post: post)
         }
         .padding(.vertical, 8)
         .onAppear {
@@ -99,5 +83,4 @@ struct PostView: View {
             }
         }
     }
-        
 }
