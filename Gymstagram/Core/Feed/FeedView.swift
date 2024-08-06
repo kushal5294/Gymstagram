@@ -11,6 +11,7 @@ import Kingfisher
 struct FeedView: View {
     @State private var posts: [Post] = []
     private let service = PostService()
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         NavigationView {
@@ -32,25 +33,25 @@ struct FeedView: View {
                     Divider()
                     
                     VStack {
-                        ForEach(posts) { post in
+                        ForEach(posts.filter { $0.uid != viewModel.currentUser?.id }) { post in
                             PostView(post: post)
                         }
                     }
                 }
                 .task {
                     do {
-                        posts = try await service.fetchPosts()
+                        let allPosts = try await service.fetchPosts()
+                        posts = allPosts.filter { $0.uid != viewModel.currentUser?.id }
                     } catch {
                         print("Failed to fetch posts: \(error.localizedDescription)")
                     }
                 }
             }
             .navigationBarHidden(true)
-            //.navigationBarBackButtonHidden(true)
         }
     }
 }
 
 #Preview {
-    FeedView()
+    FeedView().environmentObject(AuthViewModel())
 }
