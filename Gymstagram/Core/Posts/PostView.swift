@@ -23,6 +23,7 @@ struct PostView: View {
                     .padding(.horizontal, 10)
                     .padding(.vertical, 5)
                 } else {
+                    // Loading state
                     HStack {
                         Image(systemName: "person.circle.fill")
                             .font(.system(size: 23))
@@ -36,7 +37,6 @@ struct PostView: View {
                 Text("\(post.timestamp.dateValue().timeSince())")
                     .padding(.trailing, 10)
             }
-            
             ZStack {
                 KFImage(URL(string: post.imageURL))
                     .resizable()
@@ -64,7 +64,11 @@ struct PostView: View {
                     }
                 }
             }
-            
+            KFImage(URL(string: post.imageURL))
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.width)
+                .clipped()
             Text(post.caption)
                 .font(.body)
                 .padding(.horizontal, 10)
@@ -73,13 +77,18 @@ struct PostView: View {
             HStack {
                 Button(action: {
                     handleLike()
+                    self.isLiked.toggle()
+                    Task {
+                        if let usr = viewModel.currentUser {
+                            await postService.handleLike(likerUid: usr.id!, postID: post.id!)
+                        }
+                    }
                 }, label: {
                     Image(systemName: isLiked ? "heart.fill" : "heart")
                         .font(.system(size: 34))
                         .padding(.horizontal)
                         .foregroundColor(.blue)
                 })
-                
                 Text("\(likeCount) likes") // Display like count
                     .font(.body)
                     .padding(.horizontal, 10)
@@ -87,6 +96,9 @@ struct PostView: View {
                 TagView(tags: post.tags)
             }
             .padding(.top, 8)
+            
+            // Comments Section
+            CommentView(post: post)
         }
         .padding(.vertical, 8)
         .onAppear {
@@ -102,7 +114,6 @@ struct PostView: View {
             }
         }
     }
-    
     private func handleLike() {
         isLiked.toggle()
         Task {

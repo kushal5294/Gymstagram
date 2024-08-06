@@ -42,7 +42,7 @@ struct PostService {
                 "imageURL": imageURL,
                 "tags": tags,
                 "timestamp": Timestamp(date: Date()),
-                "caption": caption
+                "caption": caption,
             ] as [String : Any]
             
             try await Firestore.firestore().collection("posts").document().setData(data)
