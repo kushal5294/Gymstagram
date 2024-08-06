@@ -46,6 +46,7 @@ struct FeedView: View {
                 }
             }
             .navigationBarHidden(true)
+            //.navigationBarBackButtonHidden(true)
         }
     }
 }
