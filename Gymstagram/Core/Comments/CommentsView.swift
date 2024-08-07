@@ -20,6 +20,19 @@ struct CommentView: View {
                         Image(systemName: "person.circle.fill")
                             .font(.system(size: 23))
                         Text(comment.username)
+                        Spacer()
+                        // Add a delete button if the user is the owner of the comment
+                        if viewModel.currentUser?.id == comment.userId {
+                            Button(action: {
+                                Task {
+                                    await deleteComment(commentId: comment.id ?? "")
+                                }
+                            }) {
+                                Image(systemName: "trash")
+                                    .foregroundColor(.red)
+                                    .font(.system(size: 20))
+                            }
+                        }
                     }
                     .padding(.horizontal, 10)
                     Text(comment.commentText)
@@ -84,5 +97,15 @@ struct CommentView: View {
             print("Error adding comment: \(error.localizedDescription)")
         }
     }
+    
+    // Delete comment function
+    private func deleteComment(commentId: String) async {
+        do {
+            try await commentService.deleteComment(commentId: commentId)
+            // delete comment locally so it updates faster
+            self.comments.removeAll { $0.id == commentId }
+        } catch {
+            print("Error deleting comment: \(error.localizedDescription)")
+        }
+    }
 }
-

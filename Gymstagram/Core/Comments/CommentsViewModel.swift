@@ -63,4 +63,14 @@ class CommentsViewModel: ObservableObject {
             print("Error adding comment: \(error.localizedDescription)")
         }
     }
+    
+    func deleteComment(commentId: String) async {
+            do {
+                try await commentService.deleteComment(commentId: commentId)
+                // Optionally, you can remove the comment from the local array
+                self.comments.removeAll { $0.id == commentId }
+            } catch {
+                print("Error deleting comment: \(error.localizedDescription)")
+            }
+        }
 }

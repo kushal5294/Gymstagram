@@ -60,6 +60,18 @@ class CommentService {
             }
         }
     }
+    
+    func deleteComment(commentId: String) async throws {
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+            db.collection("comments").document(commentId).delete { error in
+                if let error = error {
+                    continuation.resume(throwing: error)
+                } else {
+                    continuation.resume(returning: ())
+                }
+            }
+        }
+    }
 }
 
 
